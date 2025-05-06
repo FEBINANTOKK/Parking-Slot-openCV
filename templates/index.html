@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParkEase - 🚗 Smart Parking Dashboard</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <i class="fas fa-car"></i>
+          <span>ParkEase</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#disp">Park</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="btn login-btn">Login</button>
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Login Popup -->
+    <div class="login-popup" id="loginPopup">
+      <div class="login-popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input type="email" id="email" placeholder="Email" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" class="btn submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Find Your Perfect Parking Spot</h1>
+          <p>
+            Real-time parking availability with smart suggestions tailored to
+            your needs
+          </p>
+          <div class="search-container">
+            <a href="#disp" class="btn">Quick Parking</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="parking-lot">
+            <div class="parking-slot animated-slot"></div>
+            <div class="parking-slot"></div>
+            <div class="parking-slot animated-slot"></div>
+            <div class="car animated-car"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-icon">1</div>
+            <h3>Enter OTP</h3>
+            <p>Verify by enter the OTP</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">2</div>
+            <h3>View Options</h3>
+            <p>See available parking spots</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">3</div>
+            <h3>Reserve & Park</h3>
+            <p>Secure your spot instantly</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <h2>Smart Parking Features</h2>
+        <div class="feature-cards">
+          <div class="card">
+            <i class="fas fa-brain"></i>
+            <h3>AI Suggestions</h3>
+            <p>Get the best spot based on your preferences</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-bolt"></i>
+            <h3>Real-Time Data</h3>
+            <p>Accurate availability updates every minute</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-wallet"></i>
+            <h3>Price Comparison</h3>
+            <p>Find the most affordable options</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div>
+      <div class="header">
+        <h1 class="heading" id="disp">🚘 Smart Parking Dashboard</h1>
+        <div class="info">
+          <span>Free Spaces: <span id="free">0</span></span>
+          <span>Occupied Spaces: <span id="occupied">0</span></span>
+          <span>Suggested Slot: <span id="suggested">-</span></span>
+        </div>
+      </div>
+      <div class="content">
+        <img src="{{ url_for('video_feed') }}" class="video-feed" />
+      </div>
+      <script src="{{ url_for('static', filename='app.js') }}"></script>
+    </div>
+    <footer>
+      <p>
+        <span>FEBIN X STAR Corp.</span
+        ><span class="fot-hed">
+          &copy; 2025 ParkEase. All rights reserved.</span
+        >
+      </p>
+    </footer>
+    <script>
+      const menuToggle1 = document.querySelector(".menu-toggle");
+      const navLinks1 = document.querySelector(".nav-links");
+      const loginBtn = document.querySelector(".login-btn");
+      const loginPopup = document.getElementById("loginPopup");
+      const closePopup = document.getElementById("closePopup");
+      const loginForm = document.getElementById("loginForm");
+
+      // Toggle mobile nav
+      menuToggle1.addEventListener("click", () => {
+        navLinks1.classList.toggle("active");
+      });
+
+      // Show login popup
+      loginBtn.addEventListener("click", () => {
+        loginPopup.style.display = "flex";
+      });
+
+      // Close popup
+      closePopup.addEventListener("click", () => {
+        loginPopup.style.display = "none";
+      });
+
+      // Handle form submit
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        alert(`Thank you, ${email}, for logging in!`);
+        loginPopup.style.display = "none";
+        loginForm.reset();
+      });
+
+      // Close popup when clicking outside the form
+      window.addEventListener("click", (e) => {
+        if (e.target === loginPopup) {
+          loginPopup.style.display = "none";
+        }
+      });
+    </script>
+
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
