@@ -1,5 +1,9 @@
 # Parking-Slot-openCV
 
+## Team Members
+   Febin Anto
+   Enostar
+  
 # 🚗 Smart Parking Space Monitoring System using OpenCV + Web Application
 
 This project is a Smart Parking Space Monitoring System that uses **OpenCV** to analyze a video feed from a car park and determine the availability of parking spaces in real-time. Additionally, it includes a **web application** to monitor the parking slots remotely and suggests the **easiest available slot to park** based on proximity and space clarity.
