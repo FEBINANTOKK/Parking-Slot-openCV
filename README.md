@@ -1,7 +1,7 @@
 # Parking-Slot-openCV
 
 ## Team Members
-   Febin Anto
+   Febin Anto,
    Enostar
   
 # 🚗 Smart Parking Space Monitoring System using OpenCV + Web Application
